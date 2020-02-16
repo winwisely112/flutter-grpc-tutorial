@@ -11,7 +11,7 @@ import 'v1/google/protobuf/wrappers.pb.dart';
 
 /// CHANGE TO IP ADDRESS OF YOUR SERVER IF IT IS NECESSARY
 const serverIP = "localhost";
-const serverPort = 9090;
+const serverPort = 9074;
 
 /// ChatService client implementation
 class ChatService {

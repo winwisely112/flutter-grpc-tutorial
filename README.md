@@ -1,1 +1,28 @@
-Source code for article [Asynchronous Flutter chat client with Go chat server which are powered by gRPC (simple and streaming)](https://medium.com/@amsokol.com/tutorial-asynchronous-flutter-chat-client-with-go-chat-server-which-are-powered-by-grpc-simple-ce913066861c)
+
+
+### Build and Prepare
+```bash
+make build
+make prepare
+```
+
+### For web:
+```bash
+make flu-web-run
+```
+
+### For others:
+```bash
+make flu-mob-run
+```
+
+### Clean:
+```bash
+make clean
+```
+
+### For android:
+```bash
+adb reverse tcp:9074 tcp:9074
+```
+

@@ -7,7 +7,7 @@ YELLOW := $(shell tput -Txterm setaf 3)
 WHITE  := $(shell tput -Txterm setaf 7)
 RESET  := $(shell tput -Txterm sgr0)
 
-.PHONY: help build run clean
+.PHONY: help build prepare flu-web-run flu-mob-run clean
 
 ## Show help
 help:
@@ -34,12 +34,21 @@ build:
 
 
 ## Run the code
-run:
+prepare:
 	@echo Running
 	@docker rm -f grpc-chat-server  || true
 	@docker rm -f grpc-web-envoy || true
 	@docker run -d --name grpc-chat-server -p 9074:9074 grpc-chat-server:0.1
 	@docker run -d --name grpc-web-envoy --volume `pwd`/envoy/envoy.yaml:/etc/envoy/envoy.yaml:ro -p 8074:8074 --link grpc-chat-server:grpc-chat-server envoyproxy/envoy
+
+## Run flutter web
+flu-web-run:
+	@echo FlutterWebRun
+	@cd flutter_client/ && flutter run -d chrome 
+
+## Run flutter all
+flu-mob-run:
+	@echo FlutterMobRun
 	@cd flutter_client/ && flutter run -d all
 
 clean:
