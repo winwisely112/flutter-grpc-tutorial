@@ -31,7 +31,7 @@ help:
 build:
 	@echo Building
 	@docker build -t grpc-chat-server:0.1 go-server
-	# @docker build -t grpc-envoy-server:0.1 envoy/
+
 
 ## Run the code
 run:
@@ -40,7 +40,7 @@ run:
 	@docker rm -f grpc-web-envoy || true
 	@docker run -d --name grpc-chat-server -p 9074:9074 grpc-chat-server:0.1
 	@docker run -d --name grpc-web-envoy --volume `pwd`/envoy/envoy.yaml:/etc/envoy/envoy.yaml:ro -p 8074:8074 --link grpc-chat-server:grpc-chat-server envoyproxy/envoy
-	@cd flutter_client/ && flutter run -d chrome 
+	@cd flutter_client/ && flutter run -d all
 
 clean:
 	@echo Clean
