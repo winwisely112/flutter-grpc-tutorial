@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	if err := grpc.RunServer(context.Background(), v1.NewChatServiceServer(), "9090"); err != nil {
+	if err := grpc.RunServer(context.Background(), v1.NewChatServiceServer(), "9074"); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}

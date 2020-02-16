@@ -14,10 +14,6 @@ import 'v1/google/protobuf/empty.pb.dart';
 import 'v1/google/protobuf/wrappers.pb.dart';
 
 
-/// CHANGE TO IP ADDRESS OF YOUR SERVER IF IT IS NECESSARY
-const serverIP = "192.168.122.1";
-const serverPort = 8080;
-
 /// ChatService client implementation
 class ChatService {
   // _isolateSending is isolate to send chat messages
@@ -63,12 +59,12 @@ class ChatService {
   }
 
   void recv(String a) async {
-    var channel = GrpcWebClientChannel.xhr(Uri.parse("http://172.19.0.1:8080"));
     do {
       try {
       
         // create new client
 
+        var channel = GrpcWebClientChannel.xhr(Uri.parse("http://localhost:8074"));
         var stream = grpc.ChatServiceClient(channel).subscribe(Empty.create());
 
       
@@ -88,7 +84,7 @@ class ChatService {
 
   /// Send message to the server
   void send(MessageOutgoing message) {
-    GrpcWebClientChannel channel = GrpcWebClientChannel.xhr(Uri.parse('http://172.19.0.1:8080'));
+    var channel = GrpcWebClientChannel.xhr(Uri.parse("http://localhost:8074"));
     var request = StringValue.create();
     request.value = message.text;
     grpc.ChatServiceClient(channel).send(request);

@@ -15,7 +15,7 @@ RUN go build -o app cmd/server/main.go
 # --- Execution Stage
 
 FROM alpine:latest
-EXPOSE 9090/tcp
+EXPOSE 9074/tcp
 
 WORKDIR /root/
 COPY --from=builder /go/src/github.com/winwisely112/flutter-grpc-tutorial/go-server/app .
