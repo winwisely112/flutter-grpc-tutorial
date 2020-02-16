@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_client/api/chat_service.dart';
+import 'package:flutter_client/api/chat_service.dart' if (dart.library.html) 'package:flutter_client/api/chat_service_web.dart';
+
 
 import 'package:flutter_client/blocs/application_bloc.dart';
 import 'package:flutter_client/blocs/bloc_provider.dart';

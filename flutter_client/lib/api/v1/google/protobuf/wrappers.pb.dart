@@ -93,7 +93,7 @@ class Int64Value extends $pb.GeneratedMessage {
 
 class UInt64Value extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = new $pb.BuilderInfo('UInt64Value', package: const $pb.PackageName('google.protobuf'))
-    ..a<Int64>(1, 'value', $pb.PbFieldType.OU6, Int64.ZERO)
+    ..a<Int64>(1, 'value', $pb.PbFieldType.OU6)
     ..hasRequiredFields = false
   ;
 

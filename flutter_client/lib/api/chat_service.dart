@@ -10,8 +10,8 @@ import 'v1/google/protobuf/empty.pb.dart';
 import 'v1/google/protobuf/wrappers.pb.dart';
 
 /// CHANGE TO IP ADDRESS OF YOUR SERVER IF IT IS NECESSARY
-const serverIP = "172.16.1.18";
-const serverPort = 3000;
+const serverIP = "192.168.122.1";
+const serverPort = 9090;
 
 /// ChatService client implementation
 class ChatService {

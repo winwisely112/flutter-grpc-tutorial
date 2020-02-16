@@ -1,4 +1,4 @@
-package com.example.flutterclient;
+package io.amsokol.flutter_client;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

@@ -1,75 +1,78 @@
 ///
 //  Generated code. Do not modify.
 //  source: chat.proto
-///
-// ignore_for_file: non_constant_identifier_names,library_prefixes,unused_import
+//
+// @dart = 2.3
+// ignore_for_file: camel_case_types,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type
 
 import 'dart:async' as $async;
 
-import 'package:grpc/grpc.dart';
+import 'dart:core' as $core;
 
+import 'package:grpc/service_api.dart' as $grpc;
 import 'google/protobuf/wrappers.pb.dart' as $0;
 import 'google/protobuf/empty.pb.dart' as $1;
-import 'chat.pb.dart';
+import 'chat.pb.dart' as $2;
 export 'chat.pb.dart';
 
-class ChatServiceClient extends Client {
-  static final _$send = new ClientMethod<$0.StringValue, $1.Empty>(
+class ChatServiceClient extends $grpc.Client {
+  static final _$send = $grpc.ClientMethod<$0.StringValue, $1.Empty>(
       '/v1.ChatService/Send',
       ($0.StringValue value) => value.writeToBuffer(),
-      (List<int> value) => new $1.Empty.fromBuffer(value));
-  static final _$subscribe = new ClientMethod<$1.Empty, Message>(
+      ($core.List<$core.int> value) => $1.Empty.fromBuffer(value));
+  static final _$subscribe = $grpc.ClientMethod<$1.Empty, $2.Message>(
       '/v1.ChatService/Subscribe',
       ($1.Empty value) => value.writeToBuffer(),
-      (List<int> value) => new Message.fromBuffer(value));
+      ($core.List<$core.int> value) => $2.Message.fromBuffer(value));
 
-  ChatServiceClient(ClientChannel channel, {CallOptions options})
+  ChatServiceClient($grpc.ClientChannel channel, {$grpc.CallOptions options})
       : super(channel, options: options);
 
-  ResponseFuture<$1.Empty> send($0.StringValue request, {CallOptions options}) {
-    final call = $createCall(_$send, new $async.Stream.fromIterable([request]),
+  $grpc.ResponseFuture<$1.Empty> send($0.StringValue request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(_$send, $async.Stream.fromIterable([request]),
         options: options);
-    return new ResponseFuture(call);
+    return $grpc.ResponseFuture(call);
   }
 
-  ResponseStream<Message> subscribe($1.Empty request, {CallOptions options}) {
-    final call = $createCall(
-        _$subscribe, new $async.Stream.fromIterable([request]),
+  $grpc.ResponseStream<$2.Message> subscribe($1.Empty request,
+      {$grpc.CallOptions options}) {
+    final call = $createCall(_$subscribe, $async.Stream.fromIterable([request]),
         options: options);
-    return new ResponseStream(call);
+    return $grpc.ResponseStream(call);
   }
 }
 
-abstract class ChatServiceBase extends Service {
-  String get $name => 'v1.ChatService';
+abstract class ChatServiceBase extends $grpc.Service {
+  $core.String get $name => 'v1.ChatService';
 
   ChatServiceBase() {
-    $addMethod(new ServiceMethod<$0.StringValue, $1.Empty>(
+    $addMethod($grpc.ServiceMethod<$0.StringValue, $1.Empty>(
         'Send',
         send_Pre,
         false,
         false,
-        (List<int> value) => new $0.StringValue.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.StringValue.fromBuffer(value),
         ($1.Empty value) => value.writeToBuffer()));
-    $addMethod(new ServiceMethod<$1.Empty, Message>(
+    $addMethod($grpc.ServiceMethod<$1.Empty, $2.Message>(
         'Subscribe',
         subscribe_Pre,
         false,
         true,
-        (List<int> value) => new $1.Empty.fromBuffer(value),
-        (Message value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $1.Empty.fromBuffer(value),
+        ($2.Message value) => value.writeToBuffer()));
   }
 
   $async.Future<$1.Empty> send_Pre(
-      ServiceCall call, $async.Future request) async {
+      $grpc.ServiceCall call, $async.Future<$0.StringValue> request) async {
     return send(call, await request);
   }
 
-  $async.Stream<Message> subscribe_Pre(
-      ServiceCall call, $async.Future request) async* {
-    yield* subscribe(call, (await request) as $1.Empty);
+  $async.Stream<$2.Message> subscribe_Pre(
+      $grpc.ServiceCall call, $async.Future<$1.Empty> request) async* {
+    yield* subscribe(call, await request);
   }
 
-  $async.Future<$1.Empty> send(ServiceCall call, $0.StringValue request);
-  $async.Stream<Message> subscribe(ServiceCall call, $1.Empty request);
+  $async.Future<$1.Empty> send($grpc.ServiceCall call, $0.StringValue request);
+  $async.Stream<$2.Message> subscribe($grpc.ServiceCall call, $1.Empty request);
 }
